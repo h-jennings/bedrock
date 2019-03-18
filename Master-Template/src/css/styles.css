@@ -51,8 +51,6 @@ th.align--left {
   padding-bottom: 70px;
 }
 
-.paddtb--xsm {}
-
 .paddtb--sm {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -73,12 +71,6 @@ th.align--left {
 .paddBtm--lg {
   padding-bottom: 50px;
 }
-
-.paddBtm--md {}
-
-.paddBtm--40 {}
-
-.paddTop--lg {}
 
 /* * Text Helper Classes */
 
@@ -103,8 +95,8 @@ th.align--left {
 .txt--h2 {
   font-family: 'Rubik', sans-serif;
   text-align: center;
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 700;
+  line-height: 1.2;
   font-size: 20px;
 }
 
@@ -118,7 +110,7 @@ th.align--left {
 }
 
 .txt--body {
-  text-align: center;
+  text-align: left;
   font-weight: 400;
   line-height: 1.5;
   font-size: 15px;
@@ -126,7 +118,7 @@ th.align--left {
 
 .txt--product {
   text-align: center;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
   font-size: 15px;
 }

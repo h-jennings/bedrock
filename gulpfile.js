@@ -17,7 +17,7 @@ gulp.task("imagemin", function() {
 gulp.task("gulpInline", function() {
   gulp
     .src("Master-Template/src/build.html")
-    .pipe(gulpInline({ preserveMediaQueries: true, applyWidthAttributes: true }))
+    .pipe(gulpInline({ preserveMediaQueries: true, applyWidthAttributes: true, removeLinkTags: false }))
     .pipe(gulp.dest("Master-Template/dist/build-inline"))
     .pipe(
       browserSync.reload({
