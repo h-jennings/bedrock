@@ -1,15 +1,942 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Test</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Bedrock</title>
+  <!-- ****************** These are GLOBAL resets to be preserved from inlining ********************** -->
+  <style type="text/css" data-embed>
+    /* Box Sizing Reset */
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    /* ******************* */
+
+    html * {
+      font-family: 'Rubik', sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-width: 100%;
+      background-color: #ffffff;
+    }
+
+    /* Outlook/Hotmail Resets */
+
+    #outlook a {
+      padding: 0;
+    }
+
+    .ReadMsgBody {
+      width: 100%;
+    }
+
+    .ExternalClass {
+      width: 100%;
+    }
+
+    .ExternalClass,
+    .ExternalClass span,
+    .ExternalClass td,
+    .ExternalClass th,
+    .ExternalClass div {
+      line-height: 100%;
+    }
+
+    /* *********************** */
+
+    body,
+    table,
+    td,
+    th,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    th {
+      font-weight: normal;
+      padding: 0px;
+      display: table-cell;
+    }
+
+    body {
+      height: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      min-width: 100% !important;
+      background: #ffffff !important;
+    }
+
+    p {
+      margin-top: 0px !important;
+      margin-bottom: 1em;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+
+    body,
+    table,
+    td,
+    a {
+      text-size-adjust: 100%;
+      font-smoothing: antialiased;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    /* Apple Link Resets */
+
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    /* ****************** */
+
+    /* Link Resets */
+
+    a,
+    a:link,
+    a:active,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    a:hover,
+    a:link:hover,
+    a:active:hover,
+    a:visited:hover {
+      color: inherit;
+      text-decoration: none;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    a img,
+    a:visited img,
+    a:link img {
+      border: 0px;
+      text-decoration: none;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    /* ****************** */
+
+    /* Outlook Container Resets */
+
+    table,
+    td,
+    th {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    /* ****************** */
+  </style>
+  <style type="text/css">
+    /* Mobile Styles */
+
+    @media only screen and (max-width: 600px) {
+      .mobile {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0px !important;
+      }
+
+      .centered {
+        text-align: center !important;
+      }
+
+      .hide {
+        display: none !important;
+      }
+
+      .show {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+        line-height: normal !important;
+      }
+
+      .stack {
+        width: 100% !important;
+        display: block !important;
+        max-width: 100% !important;
+      }
+
+      .stackPaddBtm {
+        padding-bottom: 30px !important;
+      }
+
+      .stackMarginBtm {
+        margin-bottom: 30px !important;
+      }
+
+      .noborder {
+        border: 0 !important;
+      }
+
+      .topBorder {
+        border-top: 1px solid #ffffff;
+      }
+
+      .topBorder--grey {
+        border-top: 1px solid #b7b7b7;
+      }
+
+      .nopadd {
+        padding: 0 !important;
+      }
+
+      .hero img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .m-paddBtm--md {
+        padding-bottom: 30px !important;
+      }
+
+      .m-paddlr--0 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .m-paddlr--md {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .m-paddtb--lg {
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+      }
+
+      .m-paddtb--primary {
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+      }
+
+      .txt--footer--contact {
+        border-right: 0 !important;
+        border-bottom: 1px solid #ffffff;
+        padding: 10px 0 !important;
+      }
+
+      .txt--h3 {
+        font-size: 18px !important;
+        line-height: 1.5;
+      }
+
+      .txt--product {
+        font-size: 18px !important;
+      }
+
+      .mobilenav {
+        border-bottom: 1px solid #b7b7b7;
+        padding: 10px 0 !important;
+      }
+    }
+  </style>
+  <style type="text/css" data-embed>
+    span.MsoHyperlink {
+      mso-style-priority: 99;
+      color: inherit;
+    }
+
+    span.MsoHyperlinkFollowed {
+      mso-style-priority: 99;
+      color: inherit;
+    }
+  </style>
+  <style type="text/css" data-embed>
+    .gmailfix {
+      display: none;
+      display: none !important;
+    }
+  </style>
+  <!-- Outlook specific fonts -->
+  <!--[if mso]>
+  <style type="text/css">
+    th,
+    td,
+    p,
+    span,
+    b,
+    i,
+    a,
+    sup,
+    table {
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+  </style>
+  <![endif]-->
+  <!-- Outlook specific fonts -->
+  <!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
 </head>
 
-<body>
+<body style="width:100%; padding:0px; margin:0px;">
+  <!-- start hidden preheader -->
+  <div style="display: none; max-height: 0px; overflow: hidden;">Hidden Preheader text</div>
+  <!--[if !mso]><!-->
 
+  <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;<wbr
+    />&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+    <!--<![endif]-->
+    <!-- end preheader -->
+
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; background-color: #efefef;" width="100%">
+      <tbody>
+        <tr>
+          <th align="center" border="0" style="padding-top:20px;">
+            <!-- email frame 600px wide -->
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile" style="width:600px; max-width:600px; background-color: #ffffff;" width="600">
+              <tbody>
+                <tr>
+                  <th align="center" border="0" width="100%" style="width: 100%; border-bottom: 1px solid #f1f1f1;">
+                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                      <!-- START: TOP HEADER SECTION -->
+                      <tr>
+                        <th align="center" border="0" class="logo paddtb--sm" style="width:100%;" width="100%">
+                          <a href="https://www.whereoware.com/" name="Header_Logo" target="_blank">
+                            <img alt="Fred Flintstone" border="0" height="102" src="./assets/Fred_Flintstone.png" title="Fred Flintstone" width="60" />
+                          </a>
+                        </th>
+                      </tr>
+                      <!-- END: TOP HEADER SECTION -->
+                    </table>
+                  </th>
+                </tr>
+                <!-- Start Top Navigation -->
+                <tr>
+                  <th align="center" width="100%" border="0" style="width:100%;">
+                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                      <tr>
+                        <th align="center" width="100%" border="0" class="hide" style="padding: 15px 0; width: 100%;">
+                          <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                            <tbody>
+                              <tr>
+                                <th align="center" width="100%" border="0" style="width:100%;">
+                                  <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                    <tr>
+                                      <th class="topNavLink" align="center" border="0">
+                                        <a href="https://www.whereoware.com/" name="Nav_Mirrors" target="_blank">About</a>
+                                      </th>
+                                      <th class="topNavLink" align="center" border="0">
+                                        <a href="https://www.whereoware.com/" name="Nav_Accessories" target="_blank">Work</a>
+                                      </th>
+                                      <th class="topNavLink" align="center" border="0">
+                                        <a href="https://www.whereoware.com/" name="Nav_AccentFurniture" target="_blank">Services</a>
+                                      </th>
+                                      <th class="topNavLink" align="center" border="0">
+                                        <a href="https://www.whereoware.com/" name="Nav_New" target="_blank">Products</a>
+                                      </th>
+                                      <th class="topNavLink" align="center" border="0" style="color: #e46e04;">
+                                        <a href="https://www.whereoware.com/" name="Nav_Sale" target="_blank" style="color: #e46e04;">New</a>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                </tr>
+                <!-- End Top Navigation -->
+                <!-- Start Main Body Here -->
+                <tr>
+                  <th align="center" border="0" style="width:100%;" width="100%">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                      <tbody>
+                        <!-- START: MODULE 1 - FULL WIDTH IMAGE -->
+                        <tr>
+                          <th align="center" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th class="hero" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="Hero" style="text-decoration: none;"><img src="./assets/hero.jpg" style="display: block;" width="600" height="350"></a></th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 1 - FULL WIDTH IMAGE -->
+                        <!-- START: MODULE 2 - TEXT BLOCK -->
+                        <tr>
+                          <th align="center" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th class="paddlr--lg paddtb--primary" align="center" width="100%" border="0" style="width:100%;">
+                                  <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                    <tr>
+                                      <th class="txt--h1 paddBtm--primary" align="center" width="100%" border="0" style="width:100%;">Bedrock</th>
+                                    </tr>
+                                    <tr>
+                                      <th class="txt--body paddBtm--md">Supporting copy. Euismod eget mauris vel,
+                                        lacinia molestie metus. Nulla
+                                        tempus ullamcorper placerat. Etiam egestas ornare venenatis. Nunc accumsan
+                                        turpis eget elit dignissim consequat. Proin nunc ipsum, consequat ac tincidunt
+                                        sit amet, feugiat ac enim. Donec efficitur egestas pulvinar. Ut ornare lorem ut
+                                        ligula maximus, a dapibus nisl accumsan. Praesent id ultricies lacus.</th>
+                                    </tr>
+                                    <tr>
+                                      <th align="center" width="100%" border="0" style="width:100%;">
+                                        <!-- bullet proof button -->
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                                          <tbody>
+                                            <tr>
+                                              <th align="center" width="100%" border="0" style="width:100%;">
+                                                <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <th class="txt--btn" align="center" valign="middle"><a href="https://www.whereoware.com/" target="_blank" name="mainCTA_btn" style="text-decoration: none; color: #ffffff;">Call
+                                                          to Action</a></th>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </th>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <!-- end bullet proof button -->
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 2 - TEXT BLOCK -->
+                        <!-- START: MODULE 3 - 2UP -->
+                        <tr>
+                          <th align="center" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th align="center" width="100%" border="0" style="width:100%;">
+                                  <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                    <tr>
+                                      <th class="paddlr--primary paddBtm--md" align="center" width="100%" border="0" style="width:100%;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th align="center" width="100%" border="0" style="width:100%; vertical-align: top;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="stack stackPaddBtm" align="center" width="47.5%" border="0" style="width:47.5%; vertical-align: top;">
+                                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                      <tr>
+                                                        <th align="center" width="100%" border="0" style="width:100%;">
+                                                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                            <tr>
+                                                              <th class="hero paddBtm--primary" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="2upImg_1" style="text-decoration: none;"><img src="./assets/2up.jpg" width="275" height="250"></a></th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--h2 paddBtm--primary" align="center" border="0">CATEGORY
+                                                                1</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th align="center" width="100%" border="0" style="width:100%;">
+                                                                <!-- bullet proof button -->
+                                                                <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <th align="center" width="100%" border="0" style="width:100%;">
+                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                                                          <tbody>
+                                                                            <tr>
+                                                                              <th class="txt--btn ghost" align="center" valign="middle"><a href="https://www.whereoware.com/" target="_blank" name="mainCTA_btn_2" style="text-decoration: none; color: #e46e04;">Call
+                                                                                  to Action</a></th>
+                                                                            </tr>
+                                                                          </tbody>
+                                                                        </table>
+                                                                      </th>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                                <!-- end bullet proof button -->
+                                                              </th>
+                                                            </tr>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </table>
+                                                  </th>
+                                                  <th class="hide" align="center" width="5%" border="0" style="width:5%;"></th>
+                                                  <th class="stack" align="center" width="47.5%" border="0" style="width:47.5%; vertical-align: top;">
+                                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                      <tr>
+                                                        <th align="center" width="100%" border="0" style="width:100%;">
+                                                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                            <tr>
+                                                              <th class="hero paddBtm--primary" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="2upImg_2" style="text-decoration: none;"><img src="./assets/2up.jpg" width="275" height="250"></a></th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--h2 paddBtm--primary" align="center" border="0">CATEGORY
+                                                                2</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th align="center" width="100%" border="0" style="width:100%;">
+                                                                <!-- bullet proof button -->
+                                                                <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <th align="center" width="100%" border="0" style="width:100%;">
+                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                                                          <tbody>
+                                                                            <tr>
+                                                                              <th class="txt--btn ghost" align="center" valign="middle"><a href="https://www.whereoware.com/" target="_blank" name="mainCTA_btn_3" style="text-decoration: none; color: #e46e04;">Call
+                                                                                  to Action</a></th>
+                                                                            </tr>
+                                                                          </tbody>
+                                                                        </table>
+                                                                      </th>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                                <!-- end bullet proof button -->
+                                                              </th>
+                                                            </tr>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </table>
+                                                  </th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 3 - 2UP -->
+                        <!-- START: MODULE 4 - HEADER -->
+                        <tr>
+                          <th align="center" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th class="paddtb--primary" align="center" width="100%" border="0" style="width:100%;">
+                                  <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                    <tr>
+                                      <th class="paddBtm--primary" align="center" width="100%" border="0" style="width:100%;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th class="txt--h1" align="center" width="100%" border="0" style="width:100%;">LOREM
+                                              IPSUM DOLOR DIT AMET</th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <th align="center" width="100%" border="0" style="width:100%;">
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                          <tr>
+                                            <th align="center" height="2" width="60" border="0" style="width:60px; height: 2px; border-bottom: 2px solid #e46e04;"></th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 4 - HEADER -->
+                        <!-- START: MODULE 5 - 3 UP -->
+                        <tr>
+                          <th align="center" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th align="center" width="100%" border="0" style="width:100%;">
+                                  <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                    <tr>
+                                      <th class="paddlr--primary paddBtm--lg" align="center" width="100%" border="0" style="width:100%;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th align="center" width="100%" border="0" style="width:100%; vertical-align: top;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="stack stackPaddBtm" align="center" width="32.3%" border="0" style="width:32.3%; vertical-align: top;">
+                                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                      <tr>
+                                                        <th class="m-paddlr--md" align="center" width="100%" border="0" style="width:100%;">
+                                                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                            <tr>
+                                                              <th class="hero paddBtm--sm" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="3upImg_1" style="text-decoration: none;"><img src="./assets/3up.jpg" style="display: block;" width="187" height="187"></a></th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">Product Name Lorem Ipsum Dolor sit Amet</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">$0.00</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--link paddBtm--sm" align="center" border="0"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="3upLink_1" style="text-decoration: underline; color: #e46e04;">Call
+                                                                  to Action</a></th>
+                                                            </tr>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </table>
+                                                  </th>
+                                                  <th class="hide" align="center" width="1.55%" border="0" style="width:1.55%;"></th>
+                                                  <th class="stack stackPaddBtm" align="center" width="32.3%" border="0" style="width:32.3%; vertical-align: top;">
+                                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                      <tr>
+                                                        <th class="m-paddlr--md" align="center" width="100%" border="0" style="width:100%;">
+                                                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                            <tr>
+                                                              <th class="hero paddBtm--sm" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="3upImg_2" style="text-decoration: none;"><img src="./assets/3up.jpg" style="display: block;" width="187" height="187"></a></th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">Product Name Lorem Ipsum Dolor sit Amet</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">$0.00</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--link paddBtm--sm" align="center" border="0"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="3upLink_2" style="text-decoration: underline; color: #e46e04;">Call
+                                                                  to Action</a></th>
+                                                            </tr>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </table>
+                                                  </th>
+                                                  <th class="hide" align="center" width="1.55%" border="0" style="width:1.55%;"></th>
+                                                  <th class="stack" align="center" width="32.3%" border="0" style="width:32.3%;">
+                                                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                      <tr>
+                                                        <th class="m-paddlr--md" align="center" width="100%" border="0" style="width:100%;">
+                                                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                            <tr>
+                                                              <th class="hero paddBtm--sm" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="3upImg_3" style="text-decoration: none;"><img src="./assets/3up.jpg" style="display: block;" width="187" height="187"></a></th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">Product Name Lorem Ipsum Dolor sit Amet</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--product paddBtm--sm" align="center" border="0">$0.00</th>
+                                                            </tr>
+                                                            <tr>
+                                                              <th class="txt--link paddBtm--sm" align="center" border="0"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="3upLink_3" style="text-decoration: underline; color: #e46e04;">Call
+                                                                  to Action</a></th>
+                                                            </tr>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </table>
+                                                  </th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 5 - 3 UP -->
+                        <!-- START: MODULE 6 S-CURVE -->
+                        <tr>
+                          <th align="center" class="paddBtm--lg" width="100%" border="0" style="width:100%;">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                              <tr>
+                                <th class="m-paddBtm--md" align="center" width="100%" border="0" style="width:100%; vertical-align: middle;">
+                                  <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                    <tr>
+                                      <th class="stack stackPaddBtm" align="center" width="50%" border="0" style="width:50%; vertical-align: middle;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th align="center" width="100%" border="0" style="width:100%;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="hero" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="sCurveImg_1" style="text-decoration: none;"><img src="./assets/scurve1.jpg" style="display: block;" width="300" height="300"></a></th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                      <th class="stack" align="center" width="50%" border="0" style="width:50%; vertical-align: middle;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th class="paddlr--md" align="center" width="100%" border="0" style="width:100%;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="txt--h2 paddBtm--sm align--left" align="center" border="0">Lorem
+                                                    ipsum dolor sit amet consectetur</th>
+                                                </tr>
+                                                <tr>
+                                                  <th class="txt--body paddBtm--primary align--left" align="center" border="0">Supporting
+                                                    copy. Euismod eget mauris vel, lacinia molestie metus. Nulla tempus
+                                                    ullamcorper placerat.</th>
+                                                </tr>
+                                                <tr>
+                                                  <th align="left" width="100%" border="0" style="width:100%;">
+                                                    <!-- bullet proof button -->
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                                                      <tbody>
+                                                        <tr>
+                                                          <th align="left" width="100%" border="0" style="width:100%;">
+                                                            <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <th class="txt--btn ghost" align="center" valign="middle"><a href="https://www.whereoware.com/" target="_blank" name="ScurveCTA_btn_1" style="text-decoration: none; color: #e46e04;">Call
+                                                                      to Action</a></th>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </th>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    <!-- end bullet proof button -->
+                                                  </th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                              <tr>
+                                <th align="center" width="100%" border="0" style="width:100%; vertical-align: middle; direction: rtl;">
+                                  <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                    <tr>
+                                      <th class="stack stackPaddBtm" align="center" width="50%" border="0" style="width:50%; vertical-align: middle;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th align="center" width="100%" border="0" style="width:100%;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="hero" align="center" width="100%" border="0" style="width:100%;"><a href="https://www.whereoware.com/" target="_blank" name="sCurveImg_2" style="text-decoration: none;"><img src="./assets/scurve2.jpg" style="display: block;" width="300" height="300"></a></th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                      <th class="stack" align="center" width="50%" border="0" style="width:50%; vertical-align: middle;">
+                                        <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                          <tr>
+                                            <th class="paddlr--md" align="center" width="100%" border="0" style="width:100%; direction: ltr;">
+                                              <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                <tr>
+                                                  <th class="txt--h2 paddBtm--sm align--left" align="center" border="0">Lorem
+                                                    ipsum dolor sit amet consectetur</th>
+                                                </tr>
+                                                <tr>
+                                                  <th class="txt--body paddBtm--primary align--left" align="center" border="0">Supporting
+                                                    copy. Euismod eget mauris vel, lacinia molestie metus. Nulla tempus
+                                                    ullamcorper placerat.</th>
+                                                </tr>
+                                                <tr>
+                                                  <th align="left" width="100%" border="0" style="width:100%;">
+                                                    <!-- bullet proof button -->
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                                                      <tbody>
+                                                        <tr>
+                                                          <th align="left" width="100%" border="0" style="width:100%;">
+                                                            <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <th class="txt--btn ghost" align="center" valign="middle"><a href="https://www.whereoware.com/" target="_blank" name="ScurveCTA_btn_2" style="text-decoration: none; color: #e46e04;">Call
+                                                                      to Action</a></th>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </th>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    <!-- end bullet proof button -->
+                                                  </th>
+                                                </tr>
+                                              </table>
+                                            </th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </table>
+                                </th>
+                              </tr>
+                            </table>
+                          </th>
+                        </tr>
+                        <!-- END: MODULE 6 S-CURVE -->
+                      </tbody>
+                    </table>
+                  </th>
+                </tr>
+                <!-- END Main Body -->
+                <!--[if !mso]> <!-->
+                <tr>
+                  <th class="show" style="max-height: 0; overflow: hidden; display: none; mso-hide: all;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
+                      <tbody>
+                        <tr>
+                          <th align="center" border="0" class="mobilenav topBorder--grey"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="footerNav_Mirrors">About</a></th>
+                        </tr>
+                        <tr>
+                          <th align="center" border="0" class="mobilenav"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="footerNav_Accessories">Work</a></th>
+                        </tr>
+                        <tr>
+                          <th align="center" border="0" class="mobilenav"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="footerNav_AccentFurniture">Services</a></th>
+                        </tr>
+                        <tr>
+                          <th align="center" border="0" class="mobilenav"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="footerNav_New">Products</a></th>
+                        </tr>
+                        <tr>
+                          <th align="center" border="0" class="mobilenav mobilenav-bottomborder" style="color: #e46e04;"><a href="https://www.whereoware.com/" target="_blank" xt="SPCLICK" name="footerNav_Sale" style="color: #e46e04;">New</a></th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </th>
+                </tr>
+                <!-- <![endif]-->
+                <!-- START: FOOTER -->
+                <tr>
+                  <th class="paddtb--primary paddlr--lg m-paddlr--0" align="center" width="100%" border="0" style="width:100%; background-color: #4c4c4c;">
+                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                      <!-- START: SOCIAL ICONS -->
+                      <tr>
+                        <th class="paddBtm--md" align="center" width="100%" border="0" style="width:100%;">
+                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                            <tr>
+                              <th align="center" width="100%" border="0" style="width:100%;">
+                                <table align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                  <tr>
+                                    <th class="socialimg" align="center" border="0"><a href="https://www.facebook.com/HowardElliottCollection" target="_blank" xt="SPCLICK" name="socialImgLink_facebook" style="text-decoration: none;">
+                                        <img src="./assets/facebook.png" alt="facebook" width="15" height="15" style="display: block;">
+                                      </a></th>
+                                    <th class="socialimg" align="center" border="0"><a href="https://www.instagram.com/howard.elliott/" target="_blank" xt="SPCLICK" name="socialImgLink_instagram" style="text-decoration: none;">
+                                        <img src="./assets/instagram.png" alt="instagram" width="15" height="15" style="display: block;">
+                                      </a></th>
+                                    <th class="socialimg" align="center" border="0"><a href="https://www.pinterest.com/howardelliott/" target="_blank" xt="SPCLICK" name="socialImgLink_pinterest" style="text-decoration: none;">
+                                        <img src="./assets/pinterest.png" alt="pinterest" width="15" height="15" style="display: block;">
+                                      </a></th>
+                                    <th class="socialimg" align="center" border="0"><a href="https://www.youtube.com/user/CTCCatalog" target="_blank" xt="SPCLICK" name="socialImgLink_youtube" style="text-decoration: none;">
+                                        <img src="./assets/linkedin-in.png" alt="youtube" width="15" height="15" style="display: block;">
+                                      </a></th>
+                                  </tr>
+                                </table>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                      <!-- END: SOCIAL ICONS -->
+                      <!-- START: CONTACT INFORMATION -->
+                      <tr>
+                        <th align="center" width="100%" border="0" style="width:100%;">
+                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                            <tr>
+                              <th class="paddBtm--md" align="center" width="100%" border="0" style="width:100%;">
+                                <table class="mobile" align="center" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                  <tr>
+                                    <th class="stack txt--footer--contact topBorder" align="center" border="0" style="padding: 0 10px; border-right: 1px solid #ffffff;"><a href="https://www.whereoware.com/" target="_blank" name="viewOnline" style="text-decoration: none; color: #ffffff;">View
+                                        Online</a></th>
+                                    <th class="stack txt--footer--contact" align="center" border="0" style="padding: 0 10px; border-right: 1px solid #ffffff;"><a href="https://www.whereoware.com/" target="_blank" name="emailPreferences" style="text-decoration: none; color: #ffffff;">Email
+                                        Preferences</a></th>
+                                    <th class="stack txt--footer--contact" align="center" border="0" style="padding: 0 10px;"><a href="https://www.whereoware.com/" target="_blank" name="Unsubscribe" style="text-decoration: none; color: #ffffff;">Unsubscribe</a></th>
+                                  </tr>
+                                </table>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                      <!-- END: CONTACT INFORMATION -->
+                      <tr>
+                        <th class="paddBtm--md" align="center" width="100%" border="0" style="width:100%;">
+                          <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                            <tr>
+                              <th class="txt--footer--body" align="center" width="100%" border="0" style="width:100%;">Copyright © 2019 Whereoware, LLC. All Rights Reserved.</th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                </tr>
+                <!-- END: FOOTER -->
+              </tbody>
+            </table>
+            <!-- end email frame 600px wide -->
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <!--gmail on iOS6 fix-->
+
+    <div class="gmailfix" style="white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+    <!--end fix-->
 </body>
 
 </html>
