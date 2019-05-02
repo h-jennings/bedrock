@@ -21,54 +21,44 @@ th.align--left {
 
 /* * Padding Helper Classes */
 
-.paddlr--primary {
+.pad-lr--10 {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.paddlr--md {
+.pad-lr--25 {
   padding-right: 25px;
   padding-left: 25px;
 }
 
-.paddlr--lg {
+.pad-lr--35 {
   padding-left: 35px;
   padding-right: 35px;
 }
 
-.paddtb--primary {
+.pad-tb--35 {
   padding-top: 35px;
   padding-bottom: 35px;
 }
 
-.paddtb--md {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.paddtb--lg {
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
-
-.paddtb--sm {
+.pad-tb--10 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.paddBtm--sm {
+.pad-btm--10 {
   padding-bottom: 10px;
 }
 
-.paddBtm--primary {
+.pad-btm--20 {
   padding-bottom: 20px;
 }
 
-.paddBtm--md {
+.pad-btm--30 {
   padding-bottom: 30px;
 }
 
-.paddBtm--lg {
+.pad-btm--50 {
   padding-bottom: 50px;
 }
 
